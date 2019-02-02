@@ -15,58 +15,57 @@ public class Auth {
         WebClient client = new WebClient();
         client.getOptions().setCssEnabled(false);
         client.getOptions().setJavaScriptEnabled(false);
+
+
+//      1. GOTO LOGIN PAGE
         HtmlPage page = client.getPage(loginUrl);
 
-        HtmlTextInput usernameInput = page.getFirstByXPath("//*[@id=\"login-username\"]");
-        usernameInput.setValueAttribute(login);
-        System.out.println("usernameInput: " + usernameInput);
 
-
-        HtmlSubmitInput loginButtonOne = page.getFirstByXPath("//*[@id=\"login-signin\"]");
-        System.out.println("loginButtonOne:" + loginButtonOne);
-        loginButtonOne.click();
-        System.out.println("'Next' button clicked!");
-
-
-        HtmlInput passwordInput = page.getFirstByXPath("//input[@type='password']");
-        passwordInput.setValueAttribute(password);
-        System.out.println("passwordInput: " + passwordInput);
-
-
-        HtmlInput loginButtonTwo = page.getFirstByXPath("//*[@id=\"login-signin\"]");
-        System.out.println("loginButtonTwo: " + loginButtonTwo);
-
-
-        //get the enclosing form
-        HtmlForm loginForm = passwordInput.getEnclosingForm();
-        System.out.println("loginForm: " + loginForm);
-
-        //submit the form
-        page = loginButtonTwo.click();
-        System.out.println("Login button clicked!");
-        System.out.println("page: " + page);
-
-        //returns the cookies filled client
-        return client;
-    }
-
-    public void testGoogle(){
-
+//      2. ENTER EMAIL/USERNAME
         try {
-            String testUrl = "https://google.com";
-            WebClient webClient = new WebClient();
-            HtmlPage currentPage = webClient.getPage(testUrl);
+            HtmlTextInput usernameInput = page.getFirstByXPath("//*[@id=\"login-username\"]");
+            usernameInput.setValueAttribute(login);
+            System.out.println("usernameInput: " + usernameInput);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-            System.out.println("Title:" + currentPage.getTitleText());
 
-            assertEquals("Google", currentPage.getTitleText());
+//      3. CLICK 'NEXT' BUTTON
+        try {
+            HtmlSubmitInput loginButtonOne = page.getFirstByXPath("//*[@id=\"login-signin\"]");
+            System.out.println("loginButtonOne:" + loginButtonOne);
+            page = loginButtonOne.click();
+            System.out.println("'Next' button clicked!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+//      4. ENTER PASSWORD
+        try {
+//          HtmlInput passwordInput = page.getFirstByXPath("//input[@type='password']");
+            HtmlInput passwordInput = page.getFirstByXPath("//*[@id=\"login-passwd\"]");
+            passwordInput.setValueAttribute(password);
+            System.out.println("passwordInput: " + passwordInput);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
 
+//      5. CLICK 'SIGN-IN' BUTTON
+        try {
+            HtmlButton loginButtonTwo = page.getFirstByXPath("//*[@id=\"login-signin\"]");
+            System.out.println("loginButtonTwo: " + loginButtonTwo);
+            page = loginButtonTwo.click();
+            System.out.println("'Sign-In' button clicked!");
+            System.out.println("Page Text: " + page.asText());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        //returns the cookies filled client
+        return client;
     }
-
-
 }
