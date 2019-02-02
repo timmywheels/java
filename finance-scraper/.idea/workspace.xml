@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acae5345-94af-46e4-ac9e-b89add4b55c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Arrays/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Auth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -12,22 +14,17 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ErrorTreeViewConfiguration">
+    <option name="hideWarnings" value="true" />
+    <option name="HIDE_WARNINGS" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="12" column="67" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="67" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="162">
+              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
         </entry>
@@ -35,17 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Auth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="47">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="10" lean-forward="true" selection-start-column="10" selection-end-column="10" />
+            <state relative-caret-position="690">
+              <caret line="46" selection-start-line="46" selection-start-column="2" selection-end-line="49" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -67,8 +55,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/Scraper.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/Auth.java" />
         <option value="$PROJECT_DIR$/src/main/java/Scraper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Auth.java" />
         <option value="$PROJECT_DIR$/src/main/java/Main.java" />
       </list>
     </option>
@@ -81,9 +69,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="75" />
-    <option name="width" value="1034" />
-    <option name="height" value="720" />
+    <option name="y" value="25" />
+    <option name="width" value="1269" />
+    <option name="height" value="770" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -132,7 +120,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549062844059" />
+    <property name="ToolWindowMessages.ShowToolbar" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549085532212" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -180,18 +169,19 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="773" extended-state="6" />
+    <frame x="0" y="25" width="1269" height="770" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.11796875" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.11796875" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32842416" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32840237" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.4" />
@@ -207,14 +197,14 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="9" sideWeight="0.4963181" visible="true" weight="0.38984376" />
-      <window_info anchor="right" id="Run" order="10" sideWeight="0.5036819" side_tool="true" visible="true" weight="0.38984376" />
+      <window_info anchor="right" id="Terminal" order="9" sideWeight="0.4963181" weight="0.38984376" />
+      <window_info active="true" anchor="right" id="Run" order="10" sideWeight="0.5036819" side_tool="true" visible="true" weight="0.6721828" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/Auth.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="47">
+        <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
@@ -226,17 +216,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Scraper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Auth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="690">
+          <caret line="46" selection-start-line="46" selection-start-column="2" selection-end-line="49" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="12" column="67" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="67" />
+        <state relative-caret-position="162">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>

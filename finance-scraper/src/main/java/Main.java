@@ -12,21 +12,24 @@ public class Main {
             String baseUrl = "https://finance.yahoo.com" ;
             String loginUrl = "https://login.yahoo.com/config/login" ;
             String login = "tim@timwheeler.com";
-            String password = "mvp71111" ;
+            String password = "<ENTER_PASSWORD>" ;
 
             try {
+
                 System.out.println("Starting autoLogin on " + loginUrl);
                 WebClient client = Auth.autoLogin(loginUrl, login, password);
                 HtmlPage page = client.getPage(baseUrl);
+                String logoutLink = "https://login.yahoo.com/config/?logout_all=1";
 
-                HtmlAnchor logoutLink = page.getFirstByXPath(String.format("//a[@href='user?id=%s']", login)) ;
+
                 if(logoutLink != null ){
-                    System.out.println("Successfuly logged in!");
+                    System.out.println("Successfully logged in!");
                     // printing the cookies
                     for(Cookie cookie : client.getCookieManager().getCookies()){
                         System.out.println(cookie.toString());
                     }
-                }else{
+
+                } else {
                     System.err.println("Wrong credentials");
                 }
 
