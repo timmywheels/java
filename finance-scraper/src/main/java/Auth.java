@@ -6,6 +6,8 @@ import com.gargoylesoftware.htmlunit.html.*;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
+import static org.junit.Assert.*;
+
 public class Auth {
 
     public static WebClient autoLogin(String loginUrl, String login, String password) throws FailingHttpStatusCodeException, MalformedURLException, IOException {
@@ -44,14 +46,27 @@ public class Auth {
         System.out.println("Login button clicked!");
         System.out.println("page: " + page);
 
-//        HtmlAnchor portfolioButton = page.getFirstByXPath("//*[@id=\"Nav-0-DesktopNav\"]/div/div[3]/div/div[1]/ul/li[2]/a");
-//        System.out.println("portfolioButton: " + portfolioButton);
-//        portfolioButton.click();
-//        System.out.println("portfolioButton clicked!");
-
-
-        //returns the cookies filled client :)
+        //returns the cookies filled client
         return client;
     }
+
+    public void testGoogle(){
+
+        try {
+            String testUrl = "https://google.com";
+            WebClient webClient = new WebClient();
+            HtmlPage currentPage = webClient.getPage(testUrl);
+
+            System.out.println("Title:" + currentPage.getTitleText());
+
+            assertEquals("Google", currentPage.getTitleText());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
 
 }
