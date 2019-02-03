@@ -9,7 +9,7 @@ public class Main {
             String baseUrl = "https://finance.yahoo.com" ;
             String loginUrl = "https://login.yahoo.com/config/login?.intl=us&.lang=en-US&.src=finance&.done=https%3A%2F%2Ffinance.yahoo.com%2F";
             String login = "tim@timwheeler.com";
-            String password = "<ENTER_PASSWORD>" ;
+            String password = "mvp71111" ;
 
 
             try {
