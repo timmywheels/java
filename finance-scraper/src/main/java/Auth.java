@@ -1,104 +1,59 @@
-import com.gargoylesoftware.htmlunit.BrowserVersion;
-import com.gargoylesoftware.htmlunit.FailingHttpStatusCodeException;
-import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
-import com.gargoylesoftware.htmlunit.WebClient;
-import com.gargoylesoftware.htmlunit.html.*;
-import com.gargoylesoftware.htmlunit.javascript.AbstractJavaScriptEngine;
-
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-
-import static org.junit.Assert.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Auth {
 
-    public static WebClient autoLogin(String loginUrl, String login, String password) throws FailingHttpStatusCodeException, MalformedURLException, IOException {
 
-        java.util.logging.Logger.getLogger("com.gargoylesoftware.htmlunit").setLevel(java.util.logging.Level.OFF);
-        java.util.logging.Logger.getLogger("org.apache.http").setLevel(java.util.logging.Level.OFF);
+    public static void webClient(String url, String firstName, String lastName, String email, String phone, String message) {
 
-        WebClient client = new WebClient(BrowserVersion.FIREFOX_52);
-        client.setAjaxController(new NicelyResynchronizingAjaxController());
-        client.getOptions().setCssEnabled(false);
-        client.getOptions().setJavaScriptEnabled(false);
-
-//      1. GOTO LOGIN PAGE
-        HtmlPage page = client.getPage(loginUrl);
+        System.setProperty("webdriver.gecko.driver", "/Library/Java/Extensions/geckodriver");
+        WebDriver driver = new FirefoxDriver();
+        WebDriverWait wait = new WebDriverWait(driver, 30);
 
 
-//      2. ENTER EMAIL/USERNAME
-        try {
-            HtmlTextInput usernameInput = page.getFirstByXPath("//*[@id=\"login-username\"]");
-            usernameInput.setValueAttribute(login);
-            System.out.println("usernameInput: " + usernameInput);
-        } catch (Exception e) {
+        try{
+            driver = new FirefoxDriver();
+            driver.navigate().to(url);
+
+            System.out.println("Page Title: " + driver.getTitle());
+            System.out.println("Page URL: " + driver.getCurrentUrl());
+
+            WebElement formTriggerButton = driver.findElement(By.xpath("/html/body/div/div/div/div/section/div/div/div/a/button"));
+            formTriggerButton.click();
+            System.out.println("Form trigger button clicked!");
+
+            WebElement firstNameInput = driver.findElement(By.xpath("//*[@id=\"firstNameInput\"]"));
+            firstNameInput.sendKeys(firstName);
+
+            WebElement lastNameInput = driver.findElement(By.xpath("//*[@id=\"lastNameInput\"]"));
+            lastNameInput.sendKeys(lastName);
+
+            WebElement emailInput = driver.findElement(By.xpath("//*[@id=\"emailInput\"]"));
+            emailInput.sendKeys(email);
+
+            WebElement phoneInput = driver.findElement(By.xpath("//*[@id=\"phoneInput\"]"));
+            phoneInput.sendKeys(phone);
+
+            WebElement messageInput = driver.findElement(By.xpath("//*[@id=\"messageInput\"]"));
+            messageInput.sendKeys(message);
+
+            WebElement submitButton = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/div/section/div[2]/div/form/div/input[8]"));
+            submitButton.click();
+            System.out.println("Form submitted successfully!");
+        } catch(Exception e) {
+            System.out.println("Cannot open Firefox!");
             e.printStackTrace();
+            driver.close();
         }
 
 
-//      3. CLICK 'NEXT' BUTTON
-        try {
-            HtmlSubmitInput loginButtonOne = page.getFirstByXPath("//*[@id=\"login-signin\"]");
-            System.out.println("loginButtonOne:" + loginButtonOne);
-            page = loginButtonOne.click();
-            System.out.println("'Next' button clicked!");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
 
-//      4. ENTER PASSWORD
-        try {
-            HtmlInput passwordInput = page.getFirstByXPath("//*[@id=\"login-passwd\"]");
-            passwordInput.setValueAttribute(password);
-            System.out.println("passwordInput: " + passwordInput);
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-//      5. CLICK 'SIGN-IN' BUTTON
-        try {
-//            client.getOptions().setJavaScriptEnabled(true);
-            HtmlButton loginButtonTwo = page.getFirstByXPath("//*[@id=\"login-signin\"]");
-            System.out.println("loginButtonTwo: " + loginButtonTwo);
-            page = loginButtonTwo.click();
-            System.out.println("'Sign-In' button clicked!");
-//            System.out.println("Page Text: " + page.asText());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-//      6. GOTO 'MY PORTFOLIO'
-        try {
-            HtmlAnchor myPortfolioButton = page.getFirstByXPath("//*[@id=\"Nav-0-DesktopNav\"]/div/div[3]/div/div[1]/ul/li[2]/a");
-            System.out.println("myPortfolioButton: " + myPortfolioButton);
-            page = myPortfolioButton.click();
-            System.out.println("'My Portfolio' button clicked");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-//      8. GOTO 'MY WATCHLIST'
-
-        try {
-            client.getOptions().setJavaScriptEnabled(true);
-//            client.setJavaScriptEngine();
-            System.out.println("JavaScript Enabled!");
-//            HtmlAnchor myWatchListButton = page.getFirstByXPath("//*[@id=\"Col1-0-Portfolios-Proxy\"]/main/table/tbody/tr/td[1]/a");
-//            System.out.println("myWatchListButton: " + myWatchListButton);
-//            page = myWatchListButton.click();
-            page = client.getPage("https://finance.yahoo.com/portfolio/p_0/view/v1");
-            System.out.println("Page Text: " + page.asText());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
-//      7. RETURN CLIENT WITH AUTH COOKIES
-        return client;
     }
 }
