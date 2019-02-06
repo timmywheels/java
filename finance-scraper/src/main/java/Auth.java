@@ -1,8 +1,10 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.*;
+
+import java.util.concurrent.TimeUnit;
+
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class Auth {
 
@@ -10,7 +12,7 @@ public class Auth {
     public static void webClient(String loginUrl, String username, String password, String portfolioUrl) {
         System.setProperty("webdriver.gecko.driver", "/Library/Java/Extensions/geckodriver");
         WebDriver driver = new FirefoxDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 30);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         try {
 
@@ -23,84 +25,96 @@ public class Auth {
 
             System.out.println("Could not find URL!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
 
 
         try {
 //          2. ENTER USERNAME
-            WebElement usernameInput = driver.findElement(By.id("login-username"));
+            WebElement usernameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#login-username")));
+            System.out.println("usernameInput:" + usernameInput);
             usernameInput.sendKeys(username);
             System.out.println("Username entered...");
 
         } catch (Exception e) {
             System.out.println("Error entering username!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
 
 
         try {
 //          3. CLICK 'NEXT' BUTTON
-            WebElement nextButton = driver.findElement(By.id("login-signin"));
+            WebElement nextButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#login-signin")));
+            System.out.println("nextButton: " + nextButton);
             nextButton.click();
             System.out.println("'Next' button clicked...");
 
         } catch (Exception e) {
             System.out.println("Error hitting 'next' button!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
 
 
         try {
 //          4. ENTER PASSWORD
-            WebElement passwordInput = driver.findElement(By.id("login-passwd"));
+            WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#login-passwd")));
+            System.out.println("passwordInput: " + passwordInput);
             passwordInput.sendKeys(password);
             System.out.println("Password entered...");
+
 
         } catch (Exception e) {
             System.out.println("Error entering password!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
 
 
         try {
 //          5. CLICK 'SIGN-IN' BUTTON
-            WebElement signInButton = driver.findElement(By.id("login-signin"));
+            WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#login-signin")));
+            System.out.println("signInButton: " + signInButton);
             signInButton.click();
             System.out.println("'Sign-in' button clicked...");
 
         } catch (Exception e) {
             System.out.println("Error hitting 'sign-in' button!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
 
-
         try {
+            WebElement myPortfolioButton = wait.until(visibilityOfElementLocated(By.linkText("My Portfolio")));
+            myPortfolioButton.click();
+            System.out.println("myPortfolioButton: " + myPortfolioButton);
+            System.out.printf("Portfolio button clicked...");
+//
+            WebElement myWatchListButton = wait.until(visibilityOfElementLocated(By.linkText("My Watchlist")));
+            System.out.println("myWatchListButton: " + myWatchListButton);
+            myWatchListButton.click();
+            System.out.println("Watchlist button clicked!");
 //          6. NAVIGATE TO PORTFOLIO
-            driver.navigate().to(portfolioUrl);
+//            driver.get(portfolioUrl);
+//            System.out.println("Navigated to portfolio page");
 
         } catch (Exception e) {
             System.out.println("Could not navigate to portfolio!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
-
 
         try {
 //          7. SCRAPE TABLE
-            WebElement tableRow = driver.findElement(By.xpath("//tr"));
+            WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pf-detail-table']/div[1]/table/tbody/tr[1]")));
             System.out.println("Table Row: " + tableRow);
-
             System.out.println("Page: " + driver.getPageSource());
 
         } catch (Exception e) {
             System.out.println("Could not scrape table!");
             e.printStackTrace();
-            driver.close();
+//            driver.quit();
         }
     }
 }
