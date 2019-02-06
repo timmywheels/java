@@ -2,6 +2,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
@@ -60,6 +61,7 @@ public class Auth {
         try {
 //          4. ENTER PASSWORD
             WebElement passwordInput = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#login-passwd")));
+
             System.out.println("passwordInput: " + passwordInput);
             passwordInput.sendKeys(password);
             System.out.println("Password entered...");
@@ -85,31 +87,41 @@ public class Auth {
 //            driver.quit();
         }
 
-        try {
-            WebElement myPortfolioButton = wait.until(visibilityOfElementLocated(By.linkText("My Portfolio")));
-            myPortfolioButton.click();
-            System.out.println("myPortfolioButton: " + myPortfolioButton);
-            System.out.printf("Portfolio button clicked...");
+//        try {
+//////            WebElement myPortfolioButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("My Portfolio")));
+////            myPortfolioButton.click();
+////            System.out.println("myPortfolioButton: " + myPortfolioButton);
+////            System.out.printf("Portfolio button clicked...");
+////
+////            WebElement myWatchListButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("My Watchlist")));
+////            System.out.println("myWatchListButton: " + myWatchListButton);
+////            myWatchListButton.click();
+////            System.out.println("Watchlist button clicked!");
+////          6. NAVIGATE TO PORTFOLIO
+////            driver.get(portfolioUrl);
+////            System.out.println("Navigated to portfolio page");
 //
-            WebElement myWatchListButton = wait.until(visibilityOfElementLocated(By.linkText("My Watchlist")));
-            System.out.println("myWatchListButton: " + myWatchListButton);
-            myWatchListButton.click();
-            System.out.println("Watchlist button clicked!");
-//          6. NAVIGATE TO PORTFOLIO
-//            driver.get(portfolioUrl);
-//            System.out.println("Navigated to portfolio page");
-
-        } catch (Exception e) {
-            System.out.println("Could not navigate to portfolio!");
-            e.printStackTrace();
-//            driver.quit();
-        }
+//        } catch (Exception e) {
+//            System.out.println("Could not navigate to portfolio!");
+//            e.printStackTrace();
+////            driver.quit();
+//        }
 
         try {
 //          7. SCRAPE TABLE
-            WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pf-detail-table']/div[1]/table/tbody/tr[1]")));
+//            WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pf-detail-table']/div[1]/table/tbody/tr[1]")));
+            WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[3]/div[2]/div/div/div/div/div/div[3]/div/div/section/div/section[1]/table/tbody/tr[1]")));
+
             System.out.println("Table Row: " + tableRow);
-            System.out.println("Page: " + driver.getPageSource());
+
+            //td[@aria-label="Symbol"]
+
+//            List<WebElement> symbols =  driver.findElements(By.xpath("//a[contains(@href,'quote')]"));
+            List<WebElement> symbols = driver.findElements(By.cssSelector("#data-util-col > section:nth-child(1) > table > tbody > tr > td"));
+            for(WebElement symbol : symbols){
+                System.out.println("Symbol: " + symbol.getAttribute("innerHTML"));
+            }
+//            System.out.println("Page: " + driver.getPageSource());
 
         } catch (Exception e) {
             System.out.println("Could not scrape table!");
