@@ -119,7 +119,7 @@ public class Auth {
 //            List<WebElement> symbols =  driver.findElements(By.xpath("//a[contains(@href,'quote')]"));
             List<WebElement> symbols = driver.findElements(By.cssSelector("#data-util-col > section:nth-child(1) > table > tbody > tr > td"));
             for(WebElement symbol : symbols){
-                System.out.println("Symbol: " + symbol.getAttribute("innerHTML"));
+                System.out.println(symbol.getAttribute("innerText"));
             }
 //            System.out.println("Page: " + driver.getPageSource());
 
