@@ -24,7 +24,7 @@ public class Auth {
 
             System.out.println("Could not find URL!");
             e.printStackTrace();
-//            driver.quit();
+            driver.quit();
         }
 
 
@@ -38,7 +38,7 @@ public class Auth {
         } catch (Exception e) {
             System.out.println("Error entering username!");
             e.printStackTrace();
-//            driver.quit();
+            driver.quit();
         }
 
 
@@ -52,7 +52,7 @@ public class Auth {
         } catch (Exception e) {
             System.out.println("Error hitting 'next' button!");
             e.printStackTrace();
-//            driver.quit();
+            driver.quit();
         }
 
 
@@ -68,7 +68,7 @@ public class Auth {
         } catch (Exception e) {
             System.out.println("Error entering password!");
             e.printStackTrace();
-//            driver.quit();
+            driver.quit();
         }
 
 
@@ -82,39 +82,15 @@ public class Auth {
         } catch (Exception e) {
             System.out.println("Error hitting 'sign-in' button!");
             e.printStackTrace();
-//            driver.quit();
+            driver.quit();
         }
-
-//        try {
-//////            WebElement myPortfolioButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("My Portfolio")));
-////            myPortfolioButton.click();
-////            System.out.println("myPortfolioButton: " + myPortfolioButton);
-////            System.out.printf("Portfolio button clicked...");
-////
-////            WebElement myWatchListButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.partialLinkText("My Watchlist")));
-////            System.out.println("myWatchListButton: " + myWatchListButton);
-////            myWatchListButton.click();
-////            System.out.println("Watchlist button clicked!");
-////          6. NAVIGATE TO PORTFOLIO
-////            driver.get(portfolioUrl);
-////            System.out.println("Navigated to portfolio page");
-//
-//        } catch (Exception e) {
-//            System.out.println("Could not navigate to portfolio!");
-//            e.printStackTrace();
-////            driver.quit();
-//        }
 
         try {
 //          7. SCRAPE TABLE
-//            WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='pf-detail-table']/div[1]/table/tbody/tr[1]")));
+            var Data = new Data();
             WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[3]/div[2]/div/div/div/div/div/div[3]/div/div/section/div/section[1]/table/tbody/tr[1]")));
 
             System.out.println("Table Row: " + tableRow);
-
-            //td[@aria-label="Symbol"]
-
-//            List<WebElement> symbols =  driver.findElements(By.xpath("//a[contains(@href,'quote')]"));
 
             List<WebElement> stockData = driver.findElements(By.cssSelector("#data-util-col > section:nth-child(1) > table > tbody > tr > td"));
 
@@ -128,16 +104,25 @@ public class Auth {
                 singleStock.add(stockDataCell.getAttribute("innerText").trim());
                 if (singleStock.size() == totalDataPointsPerStock) {
                     stockList.add(singleStock);
+
+                    String symbol = singleStock.get(0);
+                    String lastPrice = singleStock.get(1);
+                    String change = singleStock.get(2);
+                    String percentChange = singleStock.get(3);
+
+                    Data.insert(symbol, lastPrice, change, percentChange);
+
                     singleStock = new ArrayList<>();
                 }
             }
 
             System.out.println(stockList);
+            driver.quit();
 
         } catch (Exception e) {
             System.out.println("Could not scrape table!");
             e.printStackTrace();
-//            driver.quit();
+            driver.quit();
         }
     }
 }
