@@ -2,10 +2,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.*;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
 public class Auth {
 
@@ -117,11 +115,24 @@ public class Auth {
             //td[@aria-label="Symbol"]
 
 //            List<WebElement> symbols =  driver.findElements(By.xpath("//a[contains(@href,'quote')]"));
-            List<WebElement> symbols = driver.findElements(By.cssSelector("#data-util-col > section:nth-child(1) > table > tbody > tr > td"));
-            for(WebElement symbol : symbols){
-                System.out.println(symbol.getAttribute("innerText"));
+
+            List<WebElement> stockData = driver.findElements(By.cssSelector("#data-util-col > section:nth-child(1) > table > tbody > tr > td"));
+
+            List<List<String>> stockList = new ArrayList<>();
+
+            List<String> singleStock = new ArrayList<>();
+
+            int totalDataPointsPerStock = 4;
+
+            for (WebElement stockDataCell : stockData) {
+                singleStock.add(stockDataCell.getAttribute("innerText").trim());
+                if (singleStock.size() == totalDataPointsPerStock) {
+                    stockList.add(singleStock);
+                    singleStock = new ArrayList<>();
+                }
             }
-//            System.out.println("Page: " + driver.getPageSource());
+
+            System.out.println(stockList);
 
         } catch (Exception e) {
             System.out.println("Could not scrape table!");
