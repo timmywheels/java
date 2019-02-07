@@ -1,5 +1,7 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxDriverLogLevel;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.*;
 
 import java.util.ArrayList;
@@ -12,7 +14,8 @@ public class Auth {
         System.setProperty("webdriver.gecko.driver", "/Library/Java/Extensions/geckodriver");
         WebDriver driver = new FirefoxDriver();
         WebDriverWait wait = new WebDriverWait(driver, 10);
-
+        FirefoxOptions options = new FirefoxOptions();
+        options.setLogLevel(FirefoxDriverLogLevel.ERROR);
         try {
 
 //          1. GOTO YAHOO FINANCE LOGIN URL
@@ -74,9 +77,11 @@ public class Auth {
 
         try {
 //          5. CLICK 'SIGN-IN' BUTTON
-            WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#login-signin")));
-            System.out.println("signInButton: " + signInButton);
-            signInButton.click();
+//            WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#login-signin")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("#login-signin"))).click();
+
+//            System.out.println("signInButton: " + signInButton);
+//            signInButton.click();
             System.out.println("'Sign-in' button clicked...");
 
         } catch (Exception e) {
@@ -88,6 +93,7 @@ public class Auth {
         try {
 //          7. SCRAPE TABLE
             var Data = new Data();
+            System.out.println("Starting scraper...");
             WebElement tableRow = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div/div/div[1]/div/div[3]/div[2]/div/div/div/div/div/div[3]/div/div/section/div/section[1]/table/tbody/tr[1]")));
 
             System.out.println("Table Row: " + tableRow);
@@ -98,19 +104,30 @@ public class Auth {
 
             List<String> singleStock = new ArrayList<>();
 
-            int totalDataPointsPerStock = 4;
+            int totalDataPointsPerStock = 5;
 
             for (WebElement stockDataCell : stockData) {
                 singleStock.add(stockDataCell.getAttribute("innerText").trim());
                 if (singleStock.size() == totalDataPointsPerStock) {
                     stockList.add(singleStock);
 
-                    String symbol = singleStock.get(0);
+                    String fullCompanyName = singleStock.get(0);
+                    System.out.println("fullCompanyName: " + fullCompanyName);
+
+                    String[] companyNameAndSymbol = singleStock.get(0).split("\\r?\\n");
+                    System.out.println("companyNameAndSymbol: " + companyNameAndSymbol);
+
+                    String symbol = companyNameAndSymbol[1];
+                    System.out.println("symbol: " + symbol);
+
+                    String companyName = companyNameAndSymbol[0];
+                    System.out.println("companyName: " + companyName);
+
                     String lastPrice = singleStock.get(1);
                     String change = singleStock.get(2);
                     String percentChange = singleStock.get(3);
 
-                    Data.insert(symbol, lastPrice, change, percentChange);
+                    Data.insert(symbol, companyName, lastPrice, change, percentChange);
 
                     singleStock = new ArrayList<>();
                 }
