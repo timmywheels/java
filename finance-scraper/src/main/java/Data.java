@@ -20,7 +20,7 @@ public class Data {
 
     public void insert(String symbol, String companyName, String lastPrice, String change, String percentChange) {
         System.out.println("Saving data...");
-        String sql = "INSERT INTO stocks(symbol, companyName, lastPrice, change, percentChange) VALUES(?,?, ?, ?)";
+        String sql = "INSERT INTO stocks(symbol, companyName, lastPrice, change, percentChange) VALUES(?,?,?,?,?)";
         try (Connection db = this.connect();
              PreparedStatement pstmt = db.prepareStatement(sql)) {
                 pstmt.setString(1, symbol);

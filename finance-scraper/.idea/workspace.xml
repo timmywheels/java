@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="acae5345-94af-46e4-ac9e-b89add4b55c3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/a0d12e95-8d6c-436f-8f95-31da0ad2ba7a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a0d12e95-8d6c-436f-8f95-31da0ad2ba7a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/db/stock_portfolio.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/db/stock_portfolio.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Auth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Auth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Auth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Auth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Data.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Data.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,13 +50,6 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="stock_portfolio.db" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
-        <item name="stocks: table" type="3d80ac25:SqliteImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="stock_portfolio.db" type="feb32156:DbDataSourceImpl" />
         <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
@@ -76,8 +73,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Data.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+            <state relative-caret-position="525">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,11 +85,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Auth.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="114" column="76" selection-start-line="114" selection-start-column="76" selection-end-line="114" selection-end-column="76" />
+            <state relative-caret-position="-1721">
+              <caret line="14" column="84" lean-forward="true" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/41720619-753b-45b4-88fc-7ec3b75a2207/console.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://41720619-753b-45b4-88fc-7ec3b75a2207/schema/main/table/stocks">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -146,9 +157,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1" />
     <option name="y" value="22" />
-    <option name="width" value="1264" />
+    <option name="width" value="1049" />
     <option name="height" value="773" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -194,8 +206,8 @@
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549522768060" />
-    <property name="database.console.LAST_STATE" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549589217574" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -243,36 +255,37 @@
       <updated>1548976537286</updated>
       <workItem from="1549157121856" duration="676000" />
       <workItem from="1549325384760" duration="19266000" />
-      <workItem from="1549495411096" duration="10625000" />
+      <workItem from="1549495411096" duration="17621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36203000" />
+    <option name="totallyTimeSpent" value="43199000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1264" height="773" extended-state="0" />
+    <frame x="-1" y="22" width="1279" height="773" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.11865794" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.18336026" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info id="Learn" order="7" weight="0.32960597" />
-      <window_info anchor="bottom" id="Database Console" sideWeight="0.49918166" weight="0.32892805" />
+      <window_info anchor="bottom" id="Database Console" sideWeight="0.4983845" weight="0.32892805" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.42553192" side_tool="true" visible="true" weight="0.37885463" />
-      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49906015" weight="0.3240469" />
+      <window_info anchor="bottom" id="Event Log" order="1" sideWeight="0.42649436" side_tool="true" weight="0.37885463" />
+      <window_info anchor="bottom" id="Messages" order="2" sideWeight="0.49906015" weight="0.32305434" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" weight="0.32890856" />
       <window_info anchor="bottom" id="Debug" order="5" weight="0.398827" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.5744681" visible="true" weight="0.37885463" />
-      <window_info anchor="bottom" id="Database Changes" order="10" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.57350564" weight="0.37885463" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" weight="0.32892805" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="right" id="Coverage" order="0" sideWeight="0.5023585" side_tool="true" weight="0.38987687" />
       <window_info anchor="right" id="Palette" order="1" />
@@ -283,8 +296,8 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="7" weight="0.24973376" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="right" id="Database" order="9" sideWeight="0.49292454" weight="0.3715221" />
-      <window_info active="true" anchor="right" id="Run" order="10" sideWeight="0.50591016" side_tool="true" visible="true" weight="0.5409165" />
+      <window_info active="true" anchor="right" id="Database" order="9" sideWeight="0.39941263" visible="true" weight="0.38722715" />
+      <window_info anchor="right" id="Run" order="10" sideWeight="0.60058737" side_tool="true" visible="true" weight="0.38722715" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,13 +366,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a0d12e95-8d6c-436f-8f95-31da0ad2ba7a/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="das://a0d12e95-8d6c-436f-8f95-31da0ad2ba7a/schema/main/table/stocks">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -369,18 +375,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Data.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+        <state relative-caret-position="525">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="das://a0d12e95-8d6c-436f-8f95-31da0ad2ba7a/schema/main/table/stocks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a891f242-f6ca-4c2e-a765-bb9ccf6579cf/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/41720619-753b-45b4-88fc-7ec3b75a2207/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="das://41720619-753b-45b4-88fc-7ec3b75a2207/schema/main/table/stocks">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Auth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="114" column="76" selection-start-line="114" selection-start-column="76" selection-end-line="114" selection-end-column="76" />
+        <state relative-caret-position="-1721">
+          <caret line="14" column="84" lean-forward="true" selection-start-line="14" selection-start-column="84" selection-end-line="14" selection-end-column="84" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
